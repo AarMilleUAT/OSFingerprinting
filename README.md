@@ -15,3 +15,9 @@ This scan will attempt to detect the operating system of the target using the OS
 It's important to note that OS fingerprinting is not always accurate, and can be fooled by certain techniques such as IP spoofing. 
 
 
+In addition to the options used in the previous example, the following option is added:
+
+--script-args=unsafe=1: Enables the unsafe script argument, which allows the SMB OS discovery script to use more aggressive techniques to identify the operating system of Windows hosts.
+This scan will attempt to detect the operating system of the target using the OS detection feature, and will also attempt to determine the version of software running on the target using version detection. The scan will probe all ports in the range of 1-65535, and will show the reason for the port state. The --version-intensity 9 option will increase the accuracy of the version detection. The --script=smb-os-discovery option will enable the SMB OS discovery script, and the --script-args=unsafe=1 option will allow the script to use more aggressive techniques to identify the operating system of Windows hosts. The output will be saved in three different file types (normal, XML, and grepable) with the base name scan_results.
+
+Note that the unsafe script argument can potentially cause harm to the target host, and should only be used with caution and in controlled environments.
